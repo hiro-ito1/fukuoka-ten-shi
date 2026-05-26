@@ -1,30 +1,58 @@
-# Python
+# ============================================
+# fukuoka-ten-shi 除外設定
+# ============================================
+
+# Pythonキャッシュ
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
-env/
-venv/
-ENV/
-build/
-dist/
-*.egg-info/
 
-# IDE
+# 仮想環境
+venv/
+env/
+ENV/
+.venv
+
+# IDE設定
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS
+# OS固有
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Logs
+# ログファイル
 *.log
+logs/
 
-# Temporary files
+# 機密データ（絶対に除外）
+events_approved.json
+events_pending.json
+events_rejected.json
+events_parse_failed.json
+
+# 環境変数
+.env
+.env.local
+
+# テストファイル
+test_*.py
+*_test.py
+
+# ビルド成果物
+build/
+dist/
+*.egg-info/
+
+# Playwright
+.playwright/
+
+# 一時ファイル
 *.tmp
 *.bak
+temp/
