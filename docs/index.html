@@ -3,231 +3,1974 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="福岡エリアのテニス大会情報を掲載しています。筑紫野・糸島・福岡市内のテニストーナメント情報をチェック！">
-    <title>福岡＋αテニス試合情報 | Fukuoka Tennis Tournaments</title>
+    <title>福岡＋αテニス試合情報</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* v3 追加スタイル */
+        .btn-results {
+            display: inline-block;
+            padding: 16px 32px !important;
+            font-size: 20px !important;
+            font-weight: bold;
+            background: #2196F3;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .event-details p {
+            color: #000 !important;
+            font-weight: 700 !important;
+            font-size: 16px !important;
+        }
+        .event-details strong {
+            font-weight: 900 !important;
+            color: #000 !important;
+        }
+        .event-notes {
+            margin-top: 12px;
+            padding: 12px;
+            background: transparent;
+            border-left: 4px solid #FBC02D;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+        .view-toggle {
+            display: flex;
+            gap: 12px;
+            margin: 24px 0;
+            justify-content: center;
+        }
+        .view-toggle button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid #4CAF50;
+            background: white;
+            color: #4CAF50;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .view-toggle button.active {
+            background: #4CAF50;
+            color: white;
+        }
+        .month-tabs {
+            display: none;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+            justify-content: center;
+        }
+        .month-tabs.active {
+            display: flex;
+        }
+        .month-tab {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid #FF9800;
+            background: white;
+            color: #FF9800;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .month-tab.active {
+            background: #FF9800;
+            color: white;
+        }
+        .month-section {
+            display: none;
+        }
+        .month-section.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <!-- ヘッダー -->
     <header class="header">
         <div class="container">
             <h1 class="site-title">🎾 福岡＋αテニス試合情報</h1>
             <p class="site-subtitle">Fukuoka Tennis Tournaments</p>
+            <div class="header-actions">
+                <a href="results.html" class="btn-results">📊 試合結果を見る（現在工事中）</a>
+            </div>
         </div>
     </header>
-
-    <!-- メインコンテンツ -->
     <main class="main">
         <div class="container">
-            
-            <!-- 統計情報 -->
             <section class="stats">
-                <div class="stat-card">
-                    <div class="stat-number">9</div>
-                    <div class="stat-label">募集中の大会</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">9</div>
-                    <div class="stat-label">一般大会</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">ジュニア大会</div>
-                </div>
+                <div class="stat-card"><div class="stat-number">57</div><div class="stat-label">募集中の大会</div></div>
+                <div class="stat-card"><div class="stat-number">55</div><div class="stat-label">一般大会</div></div>
+                <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">ジュニア大会</div></div>
             </section>
-
-            <!-- フィルター -->
+            <div class="view-toggle">
+                <button class="active" onclick="switchView('date')">📅 日付リスト</button>
+                <button onclick="switchView('month')">📅 月別タブ</button>
+            </div>
             <section class="filter">
                 <button class="filter-btn active" data-filter="all">すべて</button>
                 <button class="filter-btn" data-filter="一般">一般</button>
                 <button class="filter-btn" data-filter="ジュニア">ジュニア</button>
             </section>
-
-            <!-- 大会リスト -->
-            <section class="events">
-
-                <div class="month-section">
-                    <h2 class="month-title">📅 2026年05月</h2>
+            <section class="events" id="date-view">
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/05/30(土)</h2>
                     <div class="event-grid">
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/30(土)</span>
                             </div>
                             <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> F</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/30(土)</span>
                             </div>
                             <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> CD</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/30(土)</span>
                             </div>
                             <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> OP</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/30(土)</span>
                             </div>
                             <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> CD</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/30(土)</span>
                             </div>
                             <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> OP</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/05/31(日)</h2>
+                    <div class="event-grid">
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/31(日)</span>
                             </div>
                             <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> DE</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/31(日)</span>
                             </div>
                             <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> BC</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/31(日)</span>
                             </div>
                             <h3 class="event-title">ＢＣシリーズ（成人）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
                                 <p><strong>レベル:</strong> BC</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                         <div class="event-card" data-category="一般">
                             <div class="card-header">
                                 <span class="category-badge general">一般</span>
-                                <span class="event-date">2026/05/31(日)</span>
                             </div>
                             <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
                             <div class="event-details">
                                 <p><strong>主催:</strong> 城南テニスクラブ</p>
                                 <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
                                 <p><strong>レベル:</strong> BC</p>
                             </div>
-
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">
-                                詳細を見る →
-                            </a>
-
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
                         </div>
-
                     </div>
                 </div>
-
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/06(土)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/07(日)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="ジュニア">
+                            <div class="card-header">
+                                <span class="category-badge junior">ジュニア</span>
+                            </div>
+                            <h3 class="event-title">ゴーゴーゴー大会 ･･･</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 筑紫野ローンTC</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://chikushinotennis.web.fc2.com/inter.html" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/13(土)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男女</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/14(日)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ（ベテラン）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <div class="event-notes">
+                                💡 補足: 35歳以上
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ（ベテラン）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <div class="event-notes">
+                                💡 補足: 35歳以上
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズ＆シニアCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="ジュニア">
+                            <div class="card-header">
+                                <span class="category-badge junior">ジュニア</span>
+                            </div>
+                            <h3 class="event-title">ファートステップ大会</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 筑紫野ローンTC</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://chikushinotennis.web.fc2.com/inter.html" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/15(月)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ゑびすカップ要項 次回開催</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/15(月)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 筑紫野ローンTC</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://chikushinotennis.web.fc2.com/ebisucup.html" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/20(土)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズ＆シニアCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/21(日)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">令和8年6月21日糸島スポーツテニス大会</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 糸島市テニス協会</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://itosima-tennis.com/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/27(土)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ（成人）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/06/28(日)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="date-section">
+                    <h2 class="date-title">📅 2026/07/09(木)</h2>
+                    <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">糸島シニア選手権 男子、女子</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/07/09(木)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 糸島市テニス協会</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <div class="event-notes">
+                                💡 補足: レディース, シニア
+                            </div>
+                            <a href="https://itosima-tennis.com/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="month-tabs" id="month-tabs">
+                <button class="month-tab active" onclick="showMonth('2026年05月')">2026年05月</button>
+                <button class="month-tab" onclick="showMonth('2026年06月')">2026年06月</button>
+                <button class="month-tab" onclick="showMonth('2026年07月')">2026年07月</button>
+            </div>
+            <section class="month-section active" id="month-2026年05月">
+                <h2 class="date-title">📅 2026年05月の大会一覧</h2>
+                <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/30(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ（成人）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/05/31(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                </div>
+            </section>
+            <section class="month-section" id="month-2026年06月">
+                <h2 class="date-title">📅 2026年06月の大会一覧</h2>
+                <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/06(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="ジュニア">
+                            <div class="card-header">
+                                <span class="category-badge junior">ジュニア</span>
+                            </div>
+                            <h3 class="event-title">ゴーゴーゴー大会 ･･･</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/07(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 筑紫野ローンTC</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://chikushinotennis.web.fc2.com/inter.html" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男女</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/13(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ（ベテラン）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <div class="event-notes">
+                                💡 補足: 35歳以上
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ（ベテラン）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <div class="event-notes">
+                                💡 補足: 35歳以上
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズ＆シニアCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="ジュニア">
+                            <div class="card-header">
+                                <span class="category-badge junior">ジュニア</span>
+                            </div>
+                            <h3 class="event-title">ファートステップ大会</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/14(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 筑紫野ローンTC</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://chikushinotennis.web.fc2.com/inter.html" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ゑびすカップ要項 次回開催</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/15(月)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 筑紫野ローンTC</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://chikushinotennis.web.fc2.com/ebisucup.html" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズ＆シニアCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/20(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ビギナーズCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> F</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">令和8年6月21日糸島スポーツテニス大会</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/21(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 糸島市テニス協会</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <a href="https://itosima-tennis.com/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ（成人）</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong>  | <strong>性別:</strong> </p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/27(土)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＥＡＭＣＵＰ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> OP</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">フューチャーCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> DE</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">チャレンジCUP</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> CD</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">ＢＣシリーズ</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/06/28(日)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 城南テニスクラブ</p>
+                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
+                                <p><strong>レベル:</strong> BC</p>
+                            </div>
+                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                </div>
+            </section>
+            <section class="month-section" id="month-2026年07月">
+                <h2 class="date-title">📅 2026年07月の大会一覧</h2>
+                <div class="event-grid">
+                        <div class="event-card" data-category="一般">
+                            <div class="card-header">
+                                <span class="category-badge general">一般</span>
+                            </div>
+                            <h3 class="event-title">糸島シニア選手権 男子、女子</h3>
+                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
+                                📅 2026/07/09(木)
+                            </div>
+                            <div class="event-details">
+                                <p><strong>主催:</strong> 糸島市テニス協会</p>
+                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
+                                <p><strong>レベル:</strong> </p>
+                            </div>
+                            <div class="event-notes">
+                                💡 補足: レディース, シニア
+                            </div>
+                            <a href="https://itosima-tennis.com/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
+                        </div>
+                </div>
             </section>
         </div>
     </main>
-
-    <!-- フッター -->
     <footer class="footer">
         <div class="container">
-            <p class="update-time">最終更新: 2026年05月25日 13:56</p>
+            <p class="update-time">最終更新: 2026年05月25日 21:28</p>
             <p class="copyright">&copy; 2026 福岡＋αテニス試合情報</p>
             <p class="note">※ 大会情報は各主催団体の公式サイトをご確認ください</p>
         </div>
     </footer>
-
+    <script>
+        function switchView(view) {
+            const dateView = document.getElementById("date-view");
+            const monthTabs = document.getElementById("month-tabs");
+            const monthSections = document.querySelectorAll(".month-section");
+            const buttons = document.querySelectorAll(".view-toggle button");
+            
+            buttons.forEach(btn => btn.classList.remove("active"));
+            
+            if (view === "date") {
+                dateView.style.display = "block";
+                monthTabs.classList.remove("active");
+                monthSections.forEach(s => s.style.display = "none");
+                buttons[0].classList.add("active");
+            } else {
+                dateView.style.display = "none";
+                monthTabs.classList.add("active");
+                document.querySelector(".month-section.active").style.display = "block";
+                buttons[1].classList.add("active");
+            }
+        }
+        
+        function showMonth(month) {
+            const tabs = document.querySelectorAll(".month-tab");
+            const sections = document.querySelectorAll(".month-section");
+            
+            tabs.forEach(t => t.classList.remove("active"));
+            sections.forEach(s => {
+                s.classList.remove("active");
+                s.style.display = "none";
+            });
+            
+            event.target.classList.add("active");
+            const section = document.getElementById("month-" + month);
+            section.classList.add("active");
+            section.style.display = "block";
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
