@@ -56,3 +56,6 @@ dist/
 *.tmp
 *.bak
 temp/
+
+# ローカル専用フォルダ（主君のPCにのみ存在）
+local/
