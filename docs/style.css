@@ -151,7 +151,7 @@ body {
 
 .event-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);  /* カードを横2枚固定（2026-06-14変更） */
     gap: 25px;
 }
 
