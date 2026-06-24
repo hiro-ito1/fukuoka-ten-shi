@@ -15,6 +15,11 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
         .header { position: relative; }
+        /* ① 沿革タグライン */
+        .site-history {
+            margin: 6px auto 0; color: rgba(255,255,255,0.92);
+            font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+        }
         .entry-notice {
             display: inline-block; margin: 10px auto 0;
             background: rgba(255,255,255,0.18); color: #fff;
@@ -140,13 +145,22 @@
             .update-badge { position:static; display:inline-block; margin-bottom:12px; }
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSLGBGFZLZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NSLGBGFZLZ');
+    </script>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="update-badge">最終更新: 2026年06月24日</div>
+            <div class="update-badge">最終更新: 2026年06月25日</div>
             <h1 class="site-title">🎾 福岡＋αテニス試合情報</h1>
             <p class="site-subtitle">Fukuoka Tennis Tournaments</p>
+            <p class="site-history">1999年〜2020年までTPS福岡佐賀テニス試合情報。2026年6月WEBで再開</p>
             <p class="entry-notice">🎾🎾必ず主催のページで要項を確認してエントリーお願いします。😍😍</p>
             <div class="header-actions">
                 <a href="https://hiro-ito1.github.io/fukuoka-ten-shi-results/" class="btn-results" target="_blank" rel="noopener">📊 試合結果を見る</a>
@@ -4319,9 +4333,14 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <p class="update-time">最終更新: 2026年06月24日</p>
+            <p class="update-time">最終更新: 2026年06月25日</p>
             <p class="copyright">&copy; 2026 福岡＋αテニス試合情報</p>
             <p class="note">※ 大会情報は各主催団体の公式サイトをご確認ください</p>
+            <p style="margin-top:12px;">
+                <a href="https://hits.seeyoufarm.com">
+                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhiro-ito1.github.io%2Ffukuoka-ten-shi%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false" alt="訪問者数" />
+                </a>
+            </p>
         </div>
     </footer>
     <script>
