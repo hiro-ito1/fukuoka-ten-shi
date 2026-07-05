@@ -33,16 +33,14 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
     const LS = {
         cat: 'tenshi_filter_cat',
         day: 'tenshi_filter_day',
-        gen: 'tenshi_filter_gen',
         orgs: 'tenshi_filter_orgs',
         accordion: 'tenshi_accordion',
-        orgAcc: 'tenshi_org_accordion',
         favs: 'tenshi_favorites',
         presets: 'tenshi_my_presets'   // 利用者カスタムプリセット（配列）
     };
 
     // ===== 状態 =====
-    let state = { cat: 'all', day: 'all', gen: 'all', orgs: [] };
+    let state = { cat: 'all', day: 'all', orgs: [] };
 
     // ===== 安全な localStorage =====
     function lsGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
@@ -57,16 +55,13 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
     function saveState() {
         lsSet(LS.cat, state.cat);
         lsSet(LS.day, state.day);
-        lsSet(LS.gen, state.gen);
         lsSet(LS.orgs, JSON.stringify(state.orgs));
     }
     function loadState() {
         const cat = lsGet(LS.cat);
         const day = lsGet(LS.day);
-        const gen = lsGet(LS.gen);
         if (cat) state.cat = cat;
         if (day) state.day = day;
-        if (gen) state.gen = gen;
         state.orgs = lsJSON(LS.orgs, []) || [];
     }
 
@@ -77,9 +72,6 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
         });
         document.querySelectorAll('.fb.day').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('data-day') === state.day);
-        });
-        document.querySelectorAll('.fb.gen').forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-gen') === state.gen);
         });
         document.querySelectorAll('.ob').forEach(btn => {
             const key = btn.getAttribute('data-org');
@@ -97,12 +89,10 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
         cards.forEach(card => {
             const cat = card.getAttribute('data-category');
             const day = card.getAttribute('data-daytype');
-            const gen = card.getAttribute('data-gender') || '';
             const org = card.getAttribute('data-org');
             let show = true;
             if (state.cat !== 'all' && cat !== state.cat) show = false;
             if (show && state.day !== 'all' && day !== state.day) show = false;
-            if (show && state.gen !== 'all' && gen.split(' ').indexOf(state.gen) === -1) show = false;
             if (show && state.orgs.length > 0 && state.orgs.indexOf(org) === -1) show = false;
             card.style.display = show ? '' : 'none';
         });
@@ -192,7 +182,6 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
             name: trimmed.length > 16 ? trimmed.slice(0, 16) : trimmed,
             cat: state.cat,
             day: state.day,
-            gen: state.gen,
             orgs: state.orgs.slice()
         });
         setPresets(presets);
@@ -205,7 +194,6 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
         if (!pre) return;
         state.cat = pre.cat || 'all';
         state.day = pre.day || 'all';
-        state.gen = pre.gen || 'all';
         state.orgs = (pre.orgs || []).slice();
         syncUI();
         applyFilters();
@@ -232,7 +220,7 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
         document.querySelectorAll('#myfav-list .fb.preset').forEach(btn => {
             const i = parseInt(btn.getAttribute('data-preset-idx'), 10);
             const pre = presets[i];
-            const match = pre && pre.cat === state.cat && pre.day === state.day && (pre.gen || 'all') === state.gen && sameOrgs(pre.orgs || [], state.orgs);
+            const match = pre && pre.cat === state.cat && pre.day === state.day && sameOrgs(pre.orgs || [], state.orgs);
             btn.classList.toggle('active', !!match);
         });
     }
@@ -276,34 +264,6 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
         else { body.classList.remove('closed'); if (arrow) arrow.textContent = '▲'; }
     };
 
-    // ===== 主催アコーディオン（主催者が多いため既定は閉） =====
-    window.toggleOrgAccordion = function () {
-        const body = document.getElementById('org-body');
-        const arrow = document.getElementById('org-arrow');
-        if (!body) return;
-        const closed = body.classList.toggle('closed');
-        if (arrow) arrow.textContent = closed ? '▼' : '▲';
-        lsSet(LS.orgAcc, closed ? 'closed' : 'open');
-    };
-    function initOrgAccordion() {
-        const body = document.getElementById('org-body');
-        const arrow = document.getElementById('org-arrow');
-        if (!body) return;
-        const saved = lsGet(LS.orgAcc);
-        if (saved === 'open') { body.classList.remove('closed'); if (arrow) arrow.textContent = '▲'; }
-        else { body.classList.add('closed'); if (arrow) arrow.textContent = '▼'; }
-    }
-
-    // ===== 主催: 一括選択/解除 =====
-    window.selectAllOrgs = function () {
-        state.orgs = Array.from(document.querySelectorAll('.ob')).map(btn => btn.getAttribute('data-org'));
-        syncUI(); applyFilters(); saveState();
-    };
-    window.deselectAllOrgs = function () {
-        state.orgs = [];
-        syncUI(); applyFilters(); saveState();
-    };
-
     // ===== イベント登録 =====
     function bindEvents() {
         document.querySelectorAll('.fb.cat').forEach(btn => {
@@ -315,12 +275,6 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
         document.querySelectorAll('.fb.day').forEach(btn => {
             btn.addEventListener('click', () => {
                 state.day = btn.getAttribute('data-day');
-                syncUI(); applyFilters(); saveState();
-            });
-        });
-        document.querySelectorAll('.fb.gen').forEach(btn => {
-            btn.addEventListener('click', () => {
-                state.gen = btn.getAttribute('data-gen');
                 syncUI(); applyFilters(); saveState();
             });
         });
@@ -351,7 +305,6 @@ v3: P24改修版（私好み=利用者カスタム保存・主催自動対応）
     document.addEventListener('DOMContentLoaded', () => {
         loadState();
         initAccordion();
-        initOrgAccordion();
         bindEvents();
         renderPresets();
         syncUI();
