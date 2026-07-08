@@ -23,7 +23,7 @@ jobs:
 
       - name: Post to Threads
         env:
-          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN_FUKUOKA_TENSHI }}
         run: python scripts/sns_post.py
 
       - name: Commit updated snapshot
