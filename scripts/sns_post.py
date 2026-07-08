@@ -41,8 +41,13 @@ CARD_RE = re.compile(
 
 
 def _parse_events():
+    """docs/index.html は主催アコーディオン表示のため同じ大会が複数回出現するので、
+    data-favid で重複除去する（初出のタイトルを採用）。"""
     html = INDEX_HTML.read_text(encoding="utf-8")
-    return [(favid, title.strip()) for favid, title in CARD_RE.findall(html)]
+    deduped = {}
+    for favid, title in CARD_RE.findall(html):
+        deduped.setdefault(favid, title.strip())
+    return list(deduped.items())
 
 
 def _load_prev_ids():
