@@ -39,24 +39,27 @@ GUIDANCE = (
     "・民間テニスクラブ・協会は無料掲載中！\n"
     "・ピックルボールは大会情報掲載を募集中（無料）\n"
     "詳細は別途確認ください\n\n"
-    "#福岡テニス #ピックルボール"
+    "＃福岡テニス　＃ピックルボール"  # 全角＃: Threadsのトピック化を避け本文に#を残す
 )
 
-CARD_RE = re.compile(
-    r'<div class="event-card"[^>]*data-favid="([^"]+)"[^>]*>.*?'
-    r'<h3 class="event-title">([^<]*)</h3>',
-    re.DOTALL,
-)
+CARD_RE = re.compile(r'<div class="event-card"([^>]*)>')
+FAVID_RE = re.compile(r'data-favid="([^"]+)"')
+CAT_RE = re.compile(r'data-category="([^"]+)"')
 
 
 def _parse_events():
     """docs/index.html は主催アコーディオン表示のため同じ大会が複数回出現するので、
-    data-favid で重複除去する（初出のタイトルを採用）。"""
+    data-favid で重複除去する。favid -> category("一般"/"ジュニア") の辞書を返す。"""
     html = INDEX_HTML.read_text(encoding="utf-8")
     deduped = {}
-    for favid, title in CARD_RE.findall(html):
-        deduped.setdefault(favid, title.strip())
-    return list(deduped.items())
+    for attrs in CARD_RE.findall(html):
+        fm = FAVID_RE.search(attrs)
+        if not fm:
+            continue
+        favid = fm.group(1)
+        cm = CAT_RE.search(attrs)
+        deduped.setdefault(favid, cm.group(1) if cm else "一般")
+    return deduped
 
 
 def _load_prev_ids():
@@ -74,11 +77,13 @@ def _save_snapshot(ids):
     )
 
 
-def build_post_text(new_events, listed_count):
-    new_count = len(new_events)
+def build_post_text(new_count, general_count, junior_count):
     lines = [
-        f"【福岡テニス大会情報】新着{new_count}件追加しました！",
-        f"現在の掲載件数: {listed_count}件",
+        "【福岡テニス大会情報】",
+        "現在の掲載",
+        f"　一般大会 {general_count}件",
+        f"　ジュニア大会 {junior_count}件",
+        f"（本日の新着 {new_count}件）",
         "",
         f"▼大会情報はこちら\n{SITE_URL}",
         "",
@@ -164,9 +169,11 @@ def main():
         print(f"[ERROR] {INDEX_HTML} が見つかりません")
         sys.exit(1)
 
-    events = _parse_events()
+    events = _parse_events()  # favid -> category
     listed_count = len(events)
-    current_ids = {favid for favid, _title in events}
+    general_count = sum(1 for c in events.values() if c == "一般")
+    junior_count = sum(1 for c in events.values() if c == "ジュニア")
+    current_ids = set(events.keys())
     prev_ids = _load_prev_ids()
 
     if prev_ids is None:
@@ -174,10 +181,10 @@ def main():
         _save_snapshot(current_ids)
         return
 
-    new_events = [(favid, title) for favid, title in events if favid not in prev_ids]
-    text = build_post_text(new_events, listed_count)
+    new_count = len(current_ids - prev_ids)
+    text = build_post_text(new_count, general_count, junior_count)
 
-    print(f"新着{len(new_events)}件・掲載{listed_count}件を検出。Threadsへ投稿します。")
+    print(f"新着{new_count}件・掲載{listed_count}件（一般{general_count}/ジュニア{junior_count}）。Threadsへ投稿します。")
     print("-" * 40)
     print(text)
     print("-" * 40)
@@ -188,11 +195,13 @@ def main():
         sys.exit(1)
 
     # カード画像を生成 → コミット/push → SHA固定の公開URLを取得
-    date_str = datetime.now(JST).strftime("%Y.%-m.%-d") if os.name != "nt" \
-        else datetime.now(JST).strftime("%Y.%#m.%#d")
+    now = datetime.now(JST)
+    date_str = now.strftime("%Y.%-m.%-d") if os.name != "nt" else now.strftime("%Y.%#m.%#d")
+    day_index = now.timetuple().tm_yday  # 年間通算日→モチーフ/配色を日替わりに
     image_url = None
     try:
-        sns_image.generate(IMAGE_FILE, len(new_events), listed_count, date_str)
+        sns_image.generate(IMAGE_FILE, new_count, general_count, junior_count,
+                           date_str, day_index)
         sha, rel = commit_and_push_image(IMAGE_FILE)
         image_url = _image_url(sha, rel)
         print(f"画像URL: {image_url}")
