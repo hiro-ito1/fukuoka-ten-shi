@@ -125,6 +125,14 @@ def _get_threads_user_id(access_token):
     return resp.json()["id"]
 
 
+def _check(resp, label):
+    if resp.status_code >= 400:
+        print(f"[ERROR] {label} failed: HTTP {resp.status_code}")
+        print(f"  response: {resp.text}")
+        resp.raise_for_status()
+    return resp
+
+
 def post_to_threads(access_token, user_id, text, image_url=None):
     if image_url:
         data = {
@@ -136,20 +144,18 @@ def post_to_threads(access_token, user_id, text, image_url=None):
     else:
         data = {"media_type": "TEXT", "text": text, "access_token": access_token}
 
-    create_resp = requests.post(
+    create_resp = _check(requests.post(
         f"{GRAPH_BASE}/{user_id}/threads", data=data, timeout=30,
-    )
-    create_resp.raise_for_status()
+    ), "container create")
     creation_id = create_resp.json()["id"]
 
     time.sleep(5)
 
-    publish_resp = requests.post(
+    publish_resp = _check(requests.post(
         f"{GRAPH_BASE}/{user_id}/threads_publish",
         data={"creation_id": creation_id, "access_token": access_token},
         timeout=30,
-    )
-    publish_resp.raise_for_status()
+    ), "publish")
     return publish_resp.json()["id"]
 
 
