@@ -1,4 +1,4 @@
-name: Threads Auto Post
+name: SNS Auto Post
 
 on:
   schedule:
@@ -29,14 +29,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Post to Threads
+      # スクリプトが画像とスナップショットのcommit/pushまで内部で行う
+      - name: Post to Threads and Instagram
         env:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN_FUKUOKA_TENSHI }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKENfukuokatenshi20260711 }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python scripts/sns_post.py
-
-      - name: Commit updated snapshot
-        run: |
-          git add data/sns_snapshot.json
-          git diff --cached --quiet || git commit -m "chore: update sns snapshot [skip ci]"
-          git push
