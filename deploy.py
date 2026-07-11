@@ -60,10 +60,19 @@ def main():
         sys.exit(1)
     print("[OK] git commit")
 
-    # git push
+    # git pull --rebase: SNS自動投稿(GitHub Actions)が push した
+    # スナップショット/画像コミットを先に取り込む（枝分かれで push が弾かれるのを防ぐ）
+    ok, out = run_git("git pull --rebase origin main", repo_path)
+    if not ok:
+        print(f"[WARN] git pull --rebase で問題: {out}")
+        run_git("git rebase --abort", repo_path)  # 念のため中断して素のpushを試みる
+
+    # git push（弾かれたら pull --rebase してもう一度）
     ok, out = run_git("git push origin main", repo_path)
     if not ok:
-        ok, out = run_git("git push origin master", repo_path)
+        print("[INFO] push 失敗。pull --rebase して再試行します。")
+        run_git("git pull --rebase origin main", repo_path)
+        ok, out = run_git("git push origin main", repo_path)
     if not ok:
         print(f"[ERROR] git push failed: {out}")
         sys.exit(1)
