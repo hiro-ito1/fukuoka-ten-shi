@@ -39,6 +39,12 @@
             background: #FF9800; color: white !important;
             text-decoration: none; border-radius: 8px;
         }
+        .btn-taiken {
+            display: inline-block; padding: 14px 28px;
+            font-size: 18px; font-weight: bold;
+            background: #7B1FA2; color: white !important;
+            text-decoration: none; border-radius: 8px;
+        }
         .event-details p { color:#000 !important; font-weight:700 !important; font-size:16px !important; }
         .event-details strong { font-weight:900 !important; color:#000 !important; }
         .event-notes {
@@ -168,7 +174,7 @@
 <body>
     <header class="header">
         <div class="container">
-            <div class="update-badge">最終更新: 2026年07月17日</div>
+            <div class="update-badge">最終更新: 2026年07月20日</div>
             <h1 class="site-title">🎾 福岡＋αテニス試合情報</h1>
             <p class="site-subtitle">Fukuoka Tennis Tournaments</p>
             <p class="site-history">1999年〜2020年までTPS福岡佐賀テニス試合情報。2026年6月WEBで再開</p>
@@ -176,6 +182,7 @@
             <div class="header-actions">
                 <a href="https://hiro-ito1.github.io/fukuoka-ten-shi-results/" class="btn-results" target="_blank" rel="noopener">📊 試合結果を見る</a>
                 <a href="#" class="btn-official" onclick="return false;">🏆 公式戦情報（現在工事中）</a>
+                <a href="taiken.html" class="btn-taiken">🏫 部活体験で推薦・特待のチャンス！</a>
             </div>
         </div>
     </header>
@@ -186,9 +193,9 @@
     <main class="main">
         <div class="container">
             <section class="stats">
-                <div class="stat-card"><div class="stat-number">116</div><div class="stat-label">募集中の大会</div></div>
-                <div class="stat-card"><div class="stat-number">97</div><div class="stat-label">一般大会</div></div>
-                <div class="stat-card"><div class="stat-number">19</div><div class="stat-label">ジュニア大会</div></div>
+                <div class="stat-card"><div class="stat-number">106</div><div class="stat-label">募集中の大会</div></div>
+                <div class="stat-card"><div class="stat-number">89</div><div class="stat-label">一般大会</div></div>
+                <div class="stat-card"><div class="stat-number">17</div><div class="stat-label">ジュニア大会</div></div>
             </section>
             <div class="view-toggle">
                 <button class="active" onclick="switchView('date')">📅 日付リスト</button>
@@ -269,171 +276,6 @@
                 </div>
             </div>
             <section class="events" id="date-view">
-                <div class="date-section">
-                    <h2 class="date-title">📅 2026/07/18(土)</h2>
-                    <div class="event-grid">
-                        <div class="event-card" data-category="ジュニア" data-daytype="holiday" data-gender="male female" data-org="pacific" data-favid="auto_福岡パシフ_20260718_015">
-                            <button class="fav-btn" data-favid="auto_福岡パシフ_20260718_015" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge junior">ジュニア</span>
-                            </div>
-                            <h3 class="event-title">福岡小学生ビギナーズCUP(グリーンボール)</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 福岡パシフィックテニスアカデミー</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男女</p>
-                                <p><strong>レベル:</strong> 要検索</p>
-                            </div>
-                            <a href="http://www.kasuga-tennis.com/pacific/event/form.php?cd=1914" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="ジュニア" data-daytype="holiday" data-gender="male female" data-org="pacific" data-favid="auto_福岡パシフ_20260718_014">
-                            <button class="fav-btn" data-favid="auto_福岡パシフ_20260718_014" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge junior">ジュニア</span>
-                            </div>
-                            <h3 class="event-title">福岡小学生ビギナーズCUP(イエローボール)</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 福岡パシフィックテニスアカデミー</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男女</p>
-                                <p><strong>レベル:</strong> 要検索</p>
-                            </div>
-                            <a href="http://www.kasuga-tennis.com/pacific/event/form.php?cd=1915" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male female" data-org="auto1" data-favid="auto_筑後の森テニスクラブ_20260718_001">
-                            <button class="fav-btn" data-favid="auto_筑後の森テニスクラブ_20260718_001" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">土曜ナイター大会</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 筑後の森テニスクラブ</p>
-                                <p><strong>種目:</strong> ミックスダブルス | <strong>性別:</strong> 混合</p>
-                                <p><strong>レベル:</strong> EF</p>
-                            </div>
-                            <a href="https://drive.google.com/open?id=17jXiV_iV2qMTzmDmmeSLd6Ankj-ew_SI&usp=drive_fs" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male female" data-org="lets" data-favid="auto_レッツテニ_20260718_014">
-                            <button class="fav-btn" data-favid="auto_レッツテニ_20260718_014" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">レッツカップ ミックスダブルス 初中級</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> レッツテニスパーク</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 混合</p>
-                                <p><strong>レベル:</strong> 初中級</p>
-                            </div>
-                            <a href="https://lets-tennis-park.jp/matchi-information/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="lets" data-favid="auto_レッツテニ_20260718_013">
-                            <button class="fav-btn" data-favid="auto_レッツテニ_20260718_013" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">レッツカップ 男子ダブルス 初中級</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> レッツテニスパーク</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> 初中級</p>
-                            </div>
-                            <a href="https://lets-tennis-park.jp/matchi-information/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="jonan" data-favid="auto_城南テニス_20260718_016">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_016" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">ＢＣシリーズ</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> BC</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="jonan" data-favid="auto_城南テニス_20260718_012">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_012" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">ＢＣシリーズ</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> BC</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="jonan" data-favid="auto_城南テニス_20260718_014">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_014" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">フューチャーCUP</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> DE</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="female" data-org="jonan" data-favid="auto_城南テニス_20260718_013">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_013" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">ＢＣシリーズ</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
-                                <p><strong>レベル:</strong> BC</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male female" data-org="jonan" data-favid="auto_城南テニス_20260718_015">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_015" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">チャレンジCUP</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 混合</p>
-                                <p><strong>レベル:</strong> CD</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="date-section">
                     <h2 class="date-title">📅 2026/07/19(日)</h2>
                     <div class="event-grid">
@@ -2449,166 +2291,6 @@
             <section class="month-section active" id="month-2026年07月">
                 <h2 class="date-title">📅 2026年07月の大会一覧</h2>
                 <div class="event-grid">
-                        <div class="event-card" data-category="ジュニア" data-daytype="holiday" data-gender="male female" data-org="pacific" data-favid="auto_福岡パシフ_20260718_015">
-                            <button class="fav-btn" data-favid="auto_福岡パシフ_20260718_015" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge junior">ジュニア</span>
-                            </div>
-                            <h3 class="event-title">福岡小学生ビギナーズCUP(グリーンボール)</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 福岡パシフィックテニスアカデミー</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男女</p>
-                                <p><strong>レベル:</strong> 要検索</p>
-                            </div>
-                            <a href="http://www.kasuga-tennis.com/pacific/event/form.php?cd=1914" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="ジュニア" data-daytype="holiday" data-gender="male female" data-org="pacific" data-favid="auto_福岡パシフ_20260718_014">
-                            <button class="fav-btn" data-favid="auto_福岡パシフ_20260718_014" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge junior">ジュニア</span>
-                            </div>
-                            <h3 class="event-title">福岡小学生ビギナーズCUP(イエローボール)</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 福岡パシフィックテニスアカデミー</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男女</p>
-                                <p><strong>レベル:</strong> 要検索</p>
-                            </div>
-                            <a href="http://www.kasuga-tennis.com/pacific/event/form.php?cd=1915" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male female" data-org="auto1" data-favid="auto_筑後の森テニスクラブ_20260718_001">
-                            <button class="fav-btn" data-favid="auto_筑後の森テニスクラブ_20260718_001" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">土曜ナイター大会</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 筑後の森テニスクラブ</p>
-                                <p><strong>種目:</strong> ミックスダブルス | <strong>性別:</strong> 混合</p>
-                                <p><strong>レベル:</strong> EF</p>
-                            </div>
-                            <a href="https://drive.google.com/open?id=17jXiV_iV2qMTzmDmmeSLd6Ankj-ew_SI&usp=drive_fs" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male female" data-org="lets" data-favid="auto_レッツテニ_20260718_014">
-                            <button class="fav-btn" data-favid="auto_レッツテニ_20260718_014" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">レッツカップ ミックスダブルス 初中級</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> レッツテニスパーク</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 混合</p>
-                                <p><strong>レベル:</strong> 初中級</p>
-                            </div>
-                            <a href="https://lets-tennis-park.jp/matchi-information/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="lets" data-favid="auto_レッツテニ_20260718_013">
-                            <button class="fav-btn" data-favid="auto_レッツテニ_20260718_013" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">レッツカップ 男子ダブルス 初中級</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> レッツテニスパーク</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> 初中級</p>
-                            </div>
-                            <a href="https://lets-tennis-park.jp/matchi-information/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="jonan" data-favid="auto_城南テニス_20260718_016">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_016" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">ＢＣシリーズ</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> BC</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="jonan" data-favid="auto_城南テニス_20260718_012">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_012" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">ＢＣシリーズ</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> BC</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male" data-org="jonan" data-favid="auto_城南テニス_20260718_014">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_014" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">フューチャーCUP</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 男子</p>
-                                <p><strong>レベル:</strong> DE</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="female" data-org="jonan" data-favid="auto_城南テニス_20260718_013">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_013" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">ＢＣシリーズ</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> シングルス | <strong>性別:</strong> 女子</p>
-                                <p><strong>レベル:</strong> BC</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
-                        <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male female" data-org="jonan" data-favid="auto_城南テニス_20260718_015">
-                            <button class="fav-btn" data-favid="auto_城南テニス_20260718_015" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
-                            <div class="card-header">
-                                <span class="category-badge general">一般</span>
-                            </div>
-                            <h3 class="event-title">チャレンジCUP</h3>
-                            <div style="margin: 8px 0; font-size: 16px; font-weight: 700; color: #2196F3;">
-                                📅 2026/07/18(土)
-                            </div>
-                            <div class="event-details">
-                                <p><strong>主催:</strong> 城南テニスクラブ</p>
-                                <p><strong>種目:</strong> ダブルス | <strong>性別:</strong> 混合</p>
-                                <p><strong>レベル:</strong> CD</p>
-                            </div>
-                            <a href="https://jonantennis.net/convention/" class="detail-link" target="_blank" rel="noopener">詳細を見る →</a>
-                        </div>
                         <div class="event-card" data-category="一般" data-daytype="holiday" data-gender="male female" data-org="its" data-favid="auto_ITS九州_20260719_009">
                             <button class="fav-btn" data-favid="auto_ITS九州_20260719_009" aria-label="お気に入り" onclick="toggleFav(this)">♡</button>
                             <div class="card-header">
@@ -4445,7 +4127,7 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <p class="update-time">最終更新: 2026年07月17日</p>
+            <p class="update-time">最終更新: 2026年07月20日</p>
             <div class="contact-line" style="margin:16px auto;max-width:560px;line-height:1.8;">
                 <p>試合情報の掲載・結果掲載のお尋ねは、公式LINEでご連絡ください。</p>
                 <p>コートがある民間のテニスクラブ・協会などの大会情報の掲載は <strong>無料</strong> です。</p>
