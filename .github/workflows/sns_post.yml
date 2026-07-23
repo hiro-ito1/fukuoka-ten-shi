@@ -2,7 +2,7 @@ name: SNS Auto Post
 
 on:
   schedule:
-    - cron: "23 10 * * *"  # 19:23 JST（半端な分で混雑回避＋GitHub遅延ののりしろ。実配信は19:23〜21時台を想定）
+    - cron: "23 10 * * 0,3"  # 週2回（日曜=0・水曜=3）19:23 JST（半端な分で混雑回避＋GitHub遅延ののりしろ。実配信は19:23〜21時台を想定）
   workflow_dispatch: {}
 
 permissions:
