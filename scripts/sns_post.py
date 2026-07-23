@@ -92,7 +92,7 @@ def build_post_text(new_count, general_count, junior_count, tags):
         "現在の掲載",
         f"　一般大会 {general_count}件",
         f"　ジュニア大会 {junior_count}件",
-        f"（本日の新着 {new_count}件）",
+        f"（新着 {new_count}件）",
         "",
         f"▼大会情報はこちら\n{SITE_URL}",
         "",
