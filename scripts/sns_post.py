@@ -94,7 +94,7 @@ def build_post_text(new_count, general_count, junior_count, tags):
         f"　ジュニア大会 {junior_count}件",
         f"（新着 {new_count}件）",
         "",
-        f"▼大会情報はこちら\n{SITE_URL}",
+        "▼大会情報はプロフィールのリンクから",
         "",
         GUIDANCE_BODY,
         "",
